@@ -18,23 +18,23 @@ public class formRegistrPartner {
     void successFillTest() {
         open("/partners-main");
         $(".mbpl_9_head").shouldHave(text("Форма регистрации партнера"));
-        $(byName("your-name")).setValue("Арсений");
-        $(byName("your-www")).setValue("vk.com/id1");
-        $(byName("your-phone")).setValue("+71239993311");
-        $(byName("name-company")).setValue("Вавилон");
-        $(byName("your-email")).setValue("test@test.tu");
-        $(byName("menu-472")).click();
-        $(byValue("Премиум")).click();
-        $(byValue("Фотостудии")).click();
-        $(byName("text-446")).setValue("Москва");
-        $(byName("text-445")).setValue("arGQi73Vf$");
-        $(byValue("Отправить")).click();
+        $(byName("your-name")).setValue("Арсений"); // Вводим имя
+        $(byName("your-www")).setValue("vk.com/id1"); // Сайт
+        $(byName("your-phone")).setValue("+71239993311"); // Номер телефона
+        $(byName("name-company")).setValue("Вавилон"); // Название фирмы
+        $(byName("your-email")).setValue("test@test.tu"); // e-mail
+        $(byName("menu-472")).click(); // Раскрываем список тарифов
+        $(byValue("Премиум")).click(); // Выбираем тариф
+        $(byValue("Фотостудии")).click(); // Выбераем площадку
+        $(byName("text-446")).setValue("Москва"); // Город
+        $(byName("text-445")).setValue("arGQi73Vf$"); // Промокод
+        $(byValue("Отправить")).click(); // Нажимаем кнопку "Отправить"
         if (("При отправке сообщения произошла ошибка. Пожалуйста, попробуйте ещё раз позже.") != ("Ваша заявка на регистрацию объекта отправлена.")) {
             sleep(3000);
-            $(byValue("Отправить")).click();
+            $(byValue("Отправить")).click(); // Проверяем нет ли ошибки и если есть, спустя время еще раз жмем кнопку
         }
         sleep(500);
 
-        $(".main-page").shouldHave(text("Заявка на регистрацию объекта отправлена"));
+        $(".main-page").shouldHave(text("Заявка на регистрацию объекта отправлена")); // Проверяем успешное оформление заявки.
     }
 }
